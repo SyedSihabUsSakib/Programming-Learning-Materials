@@ -15,21 +15,31 @@ int fx[]={0,0,1,-1,1,1,-1,-1};
 int fy[]={1,-1,0,0,-1,1,-1,1};
 const int mxn=1e9+7;
 
-void message(); //function declaration
 
-void message() //Function definition
+void message(); //Function declaration
+
+int sum(int a, int b)
 {
-    cout<<"welcome to the shop!"<<endl;
+    int total = a+b;
+    return total; //return value of the function
 }
 
 int main() {
     int number;
     cin>>number;
-    for(int i=0;i<5;i++)
+   /* for(int i=0;i<number;i++)
     {
         message(); //Calling the function
-        message();
-    }
+    }*/
+
+    int num2;
+    cin>>num2;
+    int result = sum(number,num2);
+    cout<<"The sum is--> "<<result<<endl;
+}
+void message() //Function definition
+{
+    cout<<"welcome to the shop!"<<endl;
 }
 
 
