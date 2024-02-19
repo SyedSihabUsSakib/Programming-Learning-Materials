@@ -37,3 +37,15 @@ print("Width:", b3.width)
 print("Breadth:", b3.breadth)
 volume = b3.height * b3.width * b3.breadth
 print(f"Volume of the box is {volume} cubic units.")
+
+one = (b3 == b2)
+print(b2.height, b2.width, b2.breadth)
+print(b3.height, b3.width, b3.breadth)
+b3.width = 100
+two = (b3 == b2)
+
+print("---Part B----")
+print(b2.height, b2.width, b2.breadth)
+print(b3.height, b3.width, b3.breadth)
+
+print(one, two)
