@@ -1,5 +1,9 @@
+import csv
+
+
 class nahiyan:
     discount = 0.05
+    allProducts = []
 
     def __init__(self, productName, quan, price=0):
         assert price >= 0, f"price {price} is not greater than or equal to zero!"
@@ -7,7 +11,8 @@ class nahiyan:
         self.quantity = quan
         self.price = price
         # self.discount
-        print(f"The product name is {self.name}")
+        # print(f"The product name is {self.name}")
+        nahiyan.allProducts.append(self)
 
     def total_price(self):
         # self ---> product1 object--->for this "total = product1.total_price()"
@@ -16,14 +21,33 @@ class nahiyan:
     def newPrice(self):
         return self.total_price()-self.total_price()*self.discount
 
+    def __repr__(self):
+        return f"nahiyan({self.name} ,{self.discount},{self.quantity},{self.price})"
 
+    @classmethod
+    def getObj(cls):
+        with open('H:/Programming_Learning_Path/Python/OOP/products.csv', 'r') as f:
+            reader = csv.DictReader(f)
+            items = list(reader)
+
+            for item in items:
+                nahiyan(
+                    productName=item.get('name'),
+                    quan=item.get('quantity'),
+                    price=int(item.get('price'))
+                )
+
+
+# will implement with class method and CSV file
 product1 = nahiyan("mobile", 2, 30)
 product2 = nahiyan("Laptop", 3, 20)
 product3 = nahiyan("Tablet", 2, 10)
 product4 = nahiyan("Watch", 4, 40)
-# product3.name = 2
+
+
 product2.discount = 0.1
 product3.discount = 0.3
+
 print(
     f"The values of first product is {product1.name} {product1.quantity} {product1.price}")
 print(
@@ -46,3 +70,12 @@ print(
     f"the discount value for product1 is {product4.discount} and the new price is {product4.newPrice()}")
 # print(dir(product1))
 # print(dir(product2))
+
+
+# nahiyan.getObj() #inplementing class method
+# for product in nahiyan.allProducts:
+#     print(
+#         f"The values of first product is {product.name} {product.quantity} {product.price}")
+print("----------")
+for product in nahiyan.allProducts:
+    print(product)
