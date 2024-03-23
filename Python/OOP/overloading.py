@@ -1,6 +1,7 @@
 # Basically no overloading is possible in python OOP but with some techniques we can achieve the goal of overloading
 
 # suppose a class named calculator which has a function called sum(a,b). but unfortunately we wan to add 3 numbers at a time with the help the function called "sum()". So what is the solution?
+# Polymorphism
 class calculator:
     # def sum(self, a, b):
     #     return a+b
@@ -22,3 +23,9 @@ user = calculator()
 print(user.sum(2, 5))
 print(user.sum(4, 9, 11))
 print(user.sum(4, 9, 11, 15))
+
+
+name = "Sihab"  # Example of python default polymorphism using len()
+print(len(name))
+name = "Nahiyan"
+print(len(name))
