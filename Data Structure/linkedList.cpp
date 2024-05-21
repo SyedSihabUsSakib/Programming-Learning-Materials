@@ -21,18 +21,49 @@ struct node{
 };
 
 struct node *header = NULL;
+
+void printLinkedList(struct node *H)
+{
+    while(H!=NULL)
+    {
+        cout<<H->data<<" ";
+        H = H->link;
+    }
+    cout<<endl;
+}
 int main()
 {
-   struct node *element = new node();
+   struct node *A = new node();
 
-   element->data = 10;
-   element->link = NULL;
-   header = element;
+   A->data = 10;
+   A->link = NULL;
+   header = A;
 
-   struct node *ab = new node();
-   ab->data = 20;
-   ab->link = NULL;
-   element->link = ab;
+   struct node *B = new node();
+   B->data = 20;
+   B->link = NULL;
+   A->link = B;
+
+   struct node *C = new node();
+   C->data = 30;
+   C->link = NULL;
+   B->link = C;
+
+   printLinkedList(header);
+   printLinkedList(header);
+  /* while(header!=NULL)
+    {
+        cout<<header->data<<" ";
+        header = header->link;
+    }
+    cout<<endl;
+    while(header!=NULL) //will not execute this code as header is not pointing to the first node rather it is holding NULL
+    {
+        cout<<header->data<<" ";
+        header = header->link;
+    }
+    cout<<endl;*/
+
 }
 
 
