@@ -24,6 +24,7 @@ struct node *header = NULL;
 
 void printLinkedList(struct node *H)
 {
+
     while(H!=NULL)
     {
         cout<<H->data<<" ";
@@ -31,9 +32,39 @@ void printLinkedList(struct node *H)
     }
     cout<<endl;
 }
+
+//Appending node in the last position of a linkedList
+
+void appendLast(struct node *H, int val){
+
+
+    if(H==NULL)
+    {
+        struct node *newNode = new node();
+        newNode->data = val;
+        newNode->link = NULL;
+        H = newNode;
+        header = newNode;
+
+        return;
+    }
+
+    while(H->link!=NULL)
+    {
+        H=H->link;
+    }
+
+    struct node *newNode = new node();
+    newNode->data = val;
+    newNode->link = NULL;
+    H->link = newNode;
+
+}
+
 int main()
 {
-   struct node *A = new node();
+    //Created linkedList by appending new node in the last position without using function
+   /*struct node *A = new node();
 
    A->data = 10;
    A->link = NULL;
@@ -50,7 +81,7 @@ int main()
    B->link = C;
 
    printLinkedList(header);
-   printLinkedList(header);
+   printLinkedList(header);*/
   /* while(header!=NULL)
     {
         cout<<header->data<<" ";
@@ -64,6 +95,12 @@ int main()
     }
     cout<<endl;*/
 
+    //Appending new node in the last position of the linkedList using function
+    appendLast(header,10);
+    appendLast(header,20);
+    appendLast(header,30);
+    printLinkedList(header);
+    return 0;
 }
 
 
