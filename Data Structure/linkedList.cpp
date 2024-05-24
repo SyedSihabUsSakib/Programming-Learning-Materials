@@ -33,7 +33,7 @@ void printLinkedList(struct node *H)
     cout<<endl;
 }
 
-//Appending node in the last position of a linkedList
+//Appending a node in the last position of a linkedList
 
 void appendLast(struct node *H, int val){
 
@@ -60,6 +60,30 @@ void appendLast(struct node *H, int val){
     H->link = newNode;
 
 }
+
+
+//Appending a new node at the first position of the linkedList
+
+void appendFirst(struct node *H,int val)
+{
+
+    if(H==NULL)//When linkedList's size is zero or, linkedList is empty
+    {
+        struct node *newNode = new node();
+        newNode->data = val;
+        newNode->link = NULL;
+        header = newNode;
+
+    }
+    else{ //When the the size of the linkedList is not zero
+        struct node *newNode = new node();
+        newNode->data = val;
+        newNode->link = header;
+        header = newNode;
+    }
+
+}
+
 
 int main()
 {
@@ -95,11 +119,23 @@ int main()
     }
     cout<<endl;*/
 
-    //Appending new node in the last position of the linkedList using function
-    appendLast(header,10);
-    appendLast(header,20);
-    appendLast(header,30);
+
+    //Appending a new node in the last position of the linkedList using function
+
+    //appendLast(header,10);
+    //appendLast(header,20);
+    //appendLast(header,30);
+    //printLinkedList(header);
+
+    //Appending a node at the first position of a linkedList
+
+    appendFirst(header,10);
     printLinkedList(header);
+    appendFirst(header,20);
+    printLinkedList(header);
+    appendFirst(header,30);
+    printLinkedList(header);
+
     return 0;
 }
 
