@@ -84,6 +84,33 @@ void appendFirst(struct node *H,int val)
 
 }
 
+//Appending a new node at the nth position of the linkedList. N.B-> LinkedList's size will never be zero
+
+void appendN(struct node* H, int n, int val){
+
+    int cnt = 1;
+    while(cnt!=n-1&&n!=1){
+        H = H->link;
+        cnt++;
+    }
+
+    if(n==1)
+    {
+        struct node *newNode = new node();
+        newNode->data = val;
+        newNode->link = header;
+        header = newNode;
+    }
+    else
+    {
+        struct node *newNode = new node();
+        newNode->data = val;
+        newNode->link = H->link;
+        H->link = newNode;
+    }
+
+}
+
 
 int main()
 {
@@ -129,13 +156,25 @@ int main()
 
     //Appending a node at the first position of a linkedList
 
-    appendFirst(header,10);
-    printLinkedList(header);
-    appendFirst(header,20);
-    printLinkedList(header);
-    appendFirst(header,30);
-    printLinkedList(header);
+   // appendFirst(header,10);
+    //printLinkedList(header);
+   // appendFirst(header,20);
+   // printLinkedList(header);
+   // appendFirst(header,30);
+   // printLinkedList(header);
 
+   //Appending a node at the nth position of a linkedList. N.B-> LinkedList's size will never be zero
+   appendLast(header,10);
+   appendLast(header,20);
+   appendLast(header,30);
+   appendLast(header,40);
+   cout<<"Before appending node"<<endl;
+   printLinkedList(header);
+   int pos,val;
+   cin>>pos>>val;
+   appendN(header,pos,val);
+   cout<<"After appending new node"<<endl;
+   printLinkedList(header);
     return 0;
 }
 
