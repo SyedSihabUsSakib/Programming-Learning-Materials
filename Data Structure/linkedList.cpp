@@ -111,11 +111,26 @@ void appendN(struct node* H, int n, int val){
 
 }
 
+//Reversing a linkedList
+void reverseList(struct node* H)
+{
+    struct node *prev = nullptr, *next = nullptr;
+
+    while(H->link!=nullptr)
+    {
+        next = H->link;
+        H->link = prev;
+        prev = H;
+        H = next;
+    }
+    H->link = prev;
+    header = H;
+}
 
 int main()
 {
     //Created linkedList by appending new node in the last position without using function
-   /*struct node *A = new node();
+   struct node *A = new node();
 
    A->data = 10;
    A->link = NULL;
@@ -131,8 +146,8 @@ int main()
    C->link = NULL;
    B->link = C;
 
-   printLinkedList(header);
-   printLinkedList(header);*/
+   //printLinkedList(header);
+   //printLinkedList(header);
   /* while(header!=NULL)
     {
         cout<<header->data<<" ";
@@ -164,7 +179,7 @@ int main()
    // printLinkedList(header);
 
    //Appending a node at the nth position of a linkedList. N.B-> LinkedList's size will never be zero
-   appendLast(header,10);
+   /*appendLast(header,10);
    appendLast(header,20);
    appendLast(header,30);
    appendLast(header,40);
@@ -174,7 +189,15 @@ int main()
    cin>>pos>>val;
    appendN(header,pos,val);
    cout<<"After appending new node"<<endl;
+   printLinkedList(header);*/
+
+   //Reversing a linkedList
+   cout<<"Before reversing the LinkedList"<<endl;
    printLinkedList(header);
+   reverseList(header);
+   cout<<"After reversing the linkedList"<<endl;
+   printLinkedList(header);
+
     return 0;
 }
 
